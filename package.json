@@ -1,0 +1,21 @@
+{
+  "name": "cnn-config-client",
+  "version": "0.0.1",
+  "description": "A moduel that interfaces with CNN config server.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js",
+    "generate-changelog": "changelog-maker --group"
+  },
+  "dependencies": {
+      "node-fetch": "1.3.3"
+  },
+  "devDependencies": {
+    "changelog-maker": "2.2.0"
+  },
+  "engines": {
+    "node": "5.5.0",
+    "npm": "3.3.4"
+  }
+}
