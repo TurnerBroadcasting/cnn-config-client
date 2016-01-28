@@ -17,6 +17,7 @@ function setEnv (json) {
     for (prop in json) {
         if (json.hasOwnProperty(prop)) {
             process.env[prop] = json[prop];
+            console.log('setting %s to %s', prop, json[prop]);
         }
     }
 }
