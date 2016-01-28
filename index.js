@@ -4,7 +4,7 @@ const util = require('util'),
     fetch = require('node-fetch'),
     hosts = {
         dev: 'http://cnn-config-server.dev.services.ec2.dmtio.net:5000',
-        prod: 'cnn-config-server.prod.services.ec2.dmtio.net:5000'
+        prod: 'http://cnn-config-server.prod.services.ec2.dmtio.net:5000'
     };
     
 function testOptions (options) {
@@ -42,7 +42,11 @@ function update (options) {
 function getConfig (options) {
     options = testOptions(options);
     
+    console.log('%s/%s/%s/%s', hosts[options.environment], options.product, options.environment, options.token);
+    
     let url = util.format('%s/%s/%s/%s', hosts[options.environment], options.product, options.environment, options.token);
+    
+    console.log(url);
     
     fetch(url)
         .then(function (res) {
