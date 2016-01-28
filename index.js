@@ -3,7 +3,7 @@
 const util = require('util'), 
     fetch = require('node-fetch'),
     hosts = {
-        dev: 'https://cnn-config-server-adslaton.c9users.io'
+        dev: 'http://cnn-config-server.dev.services.ec2.dmtio.net:5000'
     };
     
 function testOptions (options) {
