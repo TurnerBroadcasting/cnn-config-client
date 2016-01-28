@@ -3,7 +3,8 @@
 const util = require('util'), 
     fetch = require('node-fetch'),
     hosts = {
-        dev: 'http://cnn-config-server.dev.services.ec2.dmtio.net:5000'
+        dev: 'http://cnn-config-server.dev.services.ec2.dmtio.net:5000',
+        prod: 'cnn-config-server.prod.services.ec2.dmtio.net:5000'
     };
     
 function testOptions (options) {
@@ -13,7 +14,7 @@ function testOptions (options) {
 function register (options) {
     options = testOptions(options);
     
-    let url = util.format('%s/%s', hosts.dev, 'register');
+    let url = util.format('%s/%s', hosts[options.environment], 'register');
     
     fetch(url, {method: 'POST', body: options.data})
         .then(function (res) {
@@ -27,7 +28,7 @@ function register (options) {
 function update (options) {
     options = testOptions(options);
     
-    let url = util.format('%s/%s', hosts.dev, 'update');
+    let url = util.format('%s/%s', hosts[options.environment], 'update');
     
     fetch(url, {method: 'POST', body: options.data})
         .then(function (res) {
@@ -41,7 +42,7 @@ function update (options) {
 function getConfig (options) {
     options = testOptions(options);
     
-    let url = util.format('%s/%s/%s/%s', hosts.dev, options.product, options.environment, options.token);
+    let url = util.format('%s/%s/%s/%s', hosts[options.environment], options.product, options.environment, options.token);
     
     fetch(url)
         .then(function (res) {
