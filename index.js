@@ -12,12 +12,14 @@ function testOptions (options) {
 }
 
 function setEnv (json) {
-    let prop;
+    let prop,
+        name;
 
     for (prop in json) {
         if (json.hasOwnProperty(prop)) {
-            process.env[prop] = json[prop];
-            console.log('setting %s to %s', prop, json[prop]);
+            name = prop.toUpperCase();
+            process.env[name] = json[prop];
+            console.log('Setting process.env.%s to %s', name, json[prop]);
         }
     }
 }
