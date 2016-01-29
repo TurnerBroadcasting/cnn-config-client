@@ -11,12 +11,42 @@ function testOptions (options) {
     return typeof options === 'undefined' || typeof options !== 'object' ? {} : options;
 }
 
-function setEnv (json) {
-    let prop;
+function getVariable (object, value) {
+    let prop,
+        name;
+    
+    if (typeof object === 'object') {
+        getVariable(object, value);
+    } else {
+        for (prop in object) {
+            if (object.hasOwnProperty(prop)) {
+                getVariable(prop);
+                if (name) {
+                    name = util.format('%s_%s', name, prop.toUpperCase());
+                } else {
+                    name = util.format('%s', prop.toUpperCase());
+                }
+                process.env[name] = json[prop];
+                console.log('setting %s to %s', prop, json[prop]);
+            }
+        }
+    }
+}
 
+function setEnv (json) {
+    let prop,
+        value;
+
+    getVariable(json, value);
+    
     for (prop in json) {
         if (json.hasOwnProperty(prop)) {
-            process.env[prop] = json[prop];
+            if (name) {
+                name = util.format('%s_%s', name, prop.toUpperCase());
+            } else {
+                name = util.format('%s', prop.toUpperCase());
+            }
+            process.env[name] = json[prop];
             console.log('setting %s to %s', prop, json[prop]);
         }
     }
