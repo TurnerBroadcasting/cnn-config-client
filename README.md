@@ -68,22 +68,50 @@ Run the following.
 $ npm test
 ```
 
-### Example
+### Exported methods
+```
+register()
+update()
+getConfig()
+```
+
+### Example 1
 
 ```
 const client = require('../index.js'),
-    data = {
+    config = {
         product: 'test',
-        environment: 'dev',
-        token: '9b796e238d750e4947e93366a7f3ef96ce115ac0'
+        environment: 'test',
+        token: '35e6c81b5a764404eac05f0c556d7cb3f4549c00',
+        data: {
+            timeout: 9
+        }
     };
 
-client.getConfig(data);
+client.update(config);
 ```
 
 ```
-{"name": 1234}
+UPDATE RESPONSE: {"product":"test","environment":"test","data":{"timeout":9},"message":"Config updated"}
 ```
+
+### Example 2
+
+```
+const client = require('../index.js'),
+    config = {
+        product: 'test',
+        environment: 'test',
+        token: '35e6c81b5a764404eac05f0c556d7cb3f4549c00'
+    };
+
+client.getConfig(config);
+```
+
+```
+set process.env.TIMEOUT = 9
+```
+
 
 ## Generate Local Docs
 
