@@ -70,12 +70,12 @@ $ npm test
 
 ### Exported methods
 ```
-register()
-update()
-getConfig()
+register(options)
+update(options)
+getConfig(options, callback)
 ```
 
-### Example 1
+### Example 1: Config update
 
 ```
 const client = require('../index.js'),
@@ -95,7 +95,7 @@ client.update(config);
 UPDATE RESPONSE: {"product":"test","environment":"test","data":{"timeout":9},"message":"Config updated"}
 ```
 
-### Example 2
+### Example 2: Set the environment
 
 ```
 const client = require('../index.js'),
@@ -105,11 +105,18 @@ const client = require('../index.js'),
         token: '35e6c81b5a764404eac05f0c556d7cb3f4549c00'
     };
 
-client.getConfig(config);
+client.getConfig(config, function (error) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Environment variables have been set');   
+    }
+});
 ```
 
 ```
 set process.env.TIMEOUT = 9
+Environment variables have been set
 ```
 
 

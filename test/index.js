@@ -13,4 +13,10 @@ config.data = {
 
 client.update(config);
 
-client.getConfig(config);
+client.getConfig(config, function (error) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Environment variables have been set');   
+    }
+});
