@@ -1,8 +1,5 @@
 # CNN Server Configuration Client
 
-develop - [ ![Codeship Status for TurnerBroadcasting/cnn-config-server](https://codeship.com/projects/d03b0190-a819-0133-dad0-0a2cebec9236/status?branch=master)](https://codeship.com/projects/130547)
-
-
 **Contents**
 
 - [Documentation](#documentation)
