@@ -135,7 +135,7 @@ review the [contributing guidelines](./CONTRIBUTING.md) first.
 
 ## Project Owner
 
-A.D. Slaton <ad.slaton@turner.com) (@adsdlaton) is the current Project Owner
+A.D. Slaton <ad.slaton@turner.com> (@adslaton) is the current Project Owner
 of this repository.  The project owner is responsible for the implementation of
 this project.
 
@@ -146,7 +146,7 @@ This is a list of people directly responsible for the implementation of this
 project.  For more information about the governance of this project, see
 [GOVERNANCE.md](./GOVERNANCE.md).
 
-- A.D. Slaton <ad.slaton@turner.com) (@adsdlaton) - Applications Architect
+- A.D. Slaton <ad.slaton@turner.com> (@adslaton) - Applications Architect
 
 Collaborators follow the [COLLABORATOR_GUIDE.md](./COLLABORATOR_GUIDE.md) in
 maintaining this project.

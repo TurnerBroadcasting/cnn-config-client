@@ -58,7 +58,6 @@ function register (options) {
         })
         .then(function (json) {
             console.log('REGISTER RESPONSE: %j', json);
-            setEnv(json);
         });
 }
 
