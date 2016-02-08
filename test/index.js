@@ -4,7 +4,7 @@ const client = require('../index.js'),
     config = {
         product: 'test',
         environment: 'test',
-        token: '35e6c81b5a764404eac05f0c556d7cb3f4549c00'
+        token: 'c937944cf0422dda0ae939746d5b60e7c779b2d9'
     };
 
 config.data = {
