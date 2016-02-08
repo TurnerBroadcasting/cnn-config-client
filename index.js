@@ -16,7 +16,6 @@ function setEnv (json) {
     let prop,
         name;
 
-    console.log(json);
     if (!json || (json.STATUSCODE && json.STATUSCODE === '500')) {
         console.log('ENV NOT SET ERROR: %j', json);
     } else {
@@ -83,7 +82,7 @@ function getConfig (options) {
     options = testOptions(options);
 
     let url = util.format('%s/%s/%s/%s', host, options.product, options.environment, options.token);
-    console.log(url);
+
     fetch(url)
         .then(function (res) {
             return res.json();
