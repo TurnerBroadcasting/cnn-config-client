@@ -2,11 +2,7 @@
 
 const util = require('util'),
     fetch = require('node-fetch'),
-    hosts = {
-        test: 'http://cnn-config-server.dev.services.ec2.dmtio.net:5000',
-        dev: 'http://cnn-config-server.dev.services.ec2.dmtio.net:5000',
-        prod: 'http://cnn-config-server.prod.services.ec2.dmtio.net:5000'
-    };
+    host = process.env.CONFIG_HOST;
 
 function testOptions (options) {
     return typeof options === 'undefined' || typeof options !== 'object' ? {} : options;
@@ -20,6 +16,7 @@ function setEnv (json) {
     let prop,
         name;
 
+    console.log(json);
     if (!json || (json.STATUSCODE && json.STATUSCODE === '500')) {
         console.log('ENV NOT SET ERROR: %j', json);
     } else {
@@ -42,9 +39,10 @@ function setEnv (json) {
 function register (options) {
     options = testOptions(options);
 
-    let url = util.format('%s/%s', hosts[options.environment], 'register');
+    let url = util.format('%s/%s', host, 'register'),
+        data = JSON.stringify(options);
 
-    fetch(url, {method: 'POST', body: options.data})
+    fetch(url, {method: 'POST', body: data})
         .then(function (res) {
             return res.json();
         })
@@ -63,7 +61,7 @@ function register (options) {
 function update (options) {
     options = testOptions(options);
 
-    let url = util.format('%s/%s', hosts[options.environment], 'update'),
+    let url = util.format('%s/%s', host, 'update'),
         data = JSON.stringify(options);
 
     fetch(url, {method: 'POST', body: data})
@@ -84,8 +82,8 @@ function update (options) {
 function getConfig (options) {
     options = testOptions(options);
 
-    let url = util.format('%s/%s/%s/%s', hosts[options.environment], options.product, options.environment, options.token);
-
+    let url = util.format('%s/%s/%s/%s', host, options.product, options.environment, options.token);
+    console.log(url);
     fetch(url)
         .then(function (res) {
             return res.json();
