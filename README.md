@@ -1,5 +1,7 @@
 # CNN Server Configuration Client
 
+A module that interfaces with a configuration host.
+
 **Contents**
 
 - [Documentation](#documentation)
@@ -61,11 +63,16 @@ $ npm install
 
 ### How to test
 
-Run the following. 
+Run the following.
 
 ```shell
 $ npm test
 ```
+
+### Environment variables
+
+- **CONFIG_HOST** - _REQUIRED_ - The configuration host that the client should
+  interface with for the config values.
 
 ### Exported methods
 ```
