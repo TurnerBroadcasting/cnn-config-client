@@ -1,6 +1,6 @@
 {
   "name": "cnn-config-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A moduel that interfaces with CNN config server.",
   "main": "index.js",
   "scripts": {
