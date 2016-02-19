@@ -4,7 +4,7 @@ const util = require('util'),
     fetch = require('node-fetch'),
     host = process.env.CONFIG_HOST;
 
-function testOptions (options) {
+function testOptions(options) {
     return typeof options === 'undefined' || typeof options !== 'object' ? {} : options;
 }
 
@@ -12,15 +12,15 @@ function testOptions (options) {
  * @desc Sets the environment variables for the host
  * @param {object} json - The json representation of the set environment variables
  * @param {function} callback - The function to run after the environment has been set
- */ 
-function setEnv (json, callback) {
+ */
+function setEnv(json, callback) {
     let prop,
         name;
 
     if (!json || (json.STATUSCODE && json.STATUSCODE === '500')) {
         console.log('ENV NOT SET ERROR: %j', json);
         if (typeof callback === 'function') {
-            callback(json);   
+            callback(json);
         } else {
             console.log('No callback specified when setting the environment!');
         }
@@ -33,7 +33,7 @@ function setEnv (json, callback) {
             }
         }
         if (typeof callback === 'function') {
-            callback();   
+            callback();
         } else {
             console.log('No callback specified when setting the environment!');
         }
@@ -41,12 +41,12 @@ function setEnv (json, callback) {
 }
 
 /**
- * @desc Posts an application registration information. Options required to be 
+ * @desc Posts an application registration information. Options required to be
  * passed are `environment` and `data`
- * 
+ *
  * @param {object} options - A set of required options
  */
-function register (options) {
+function register(options) {
     options = testOptions(options);
 
     let url = util.format('%s/%s', host, 'register'),
@@ -64,10 +64,10 @@ function register (options) {
 /**
  * @desc Posts an application update information. Options required to be passed
  * are `environment` and `data`
- * 
+ *
  * @param {object} options - A set of required options
  */
-function update (options) {
+function update(options) {
     options = testOptions(options);
 
     let url = util.format('%s/%s', host, 'update'),
@@ -85,11 +85,11 @@ function update (options) {
 /**
  * @desc Gets an application config information. Options required to be passed
  * are `environment`, `data`, `product`, and `token`
- * 
+ *
  * @param {object} options - A set of required options
  * @param {function} callback - The function to run after the environment has been set
  */
-function getConfig (options, callback) {
+function getConfig(options, callback) {
     options = testOptions(options);
 
     let url = util.format('%s/%s/%s/%s', host, options.product, options.environment, options.token);
