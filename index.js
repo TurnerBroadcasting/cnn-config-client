@@ -2,7 +2,9 @@
 
 const util = require('util'),
     fetch = require('node-fetch'),
-    host = process.env.CONFIG_HOST;
+    host = process.env.CONFIG_HOST,
+    pkg = require('./package.json'),
+    debuglog = util.debuglog(pkg.name);
 
 function testOptions(options) {
     return typeof options === 'undefined' || typeof options !== 'object' ? {} : options;
@@ -15,27 +17,31 @@ function testOptions(options) {
  */
 function setEnv(json, callback) {
     let prop,
-        name;
+        name,
+        err,
+        message;
 
     if (!json || (json.STATUSCODE && json.STATUSCODE === '500')) {
-        console.log('ENV NOT SET ERROR: %j', json);
+        message = util.format('Environment not set: %j', json);
+        debuglog(message);
+        err = new Error(message);
         if (typeof callback === 'function') {
-            callback(json);
+            callback(err, json);
         } else {
-            console.log('No callback specified when setting the environment!');
+            util.error('No callback specified when setting the environment!');
         }
     } else {
         for (prop in json) {
             if (json.hasOwnProperty(prop)) {
                 name = prop.toUpperCase();
                 process.env[name] = json[prop];
-                console.log('set process.env.%s = %s', name, json[prop]);
+                debuglog('set process.env.%s = %s', name, json[prop]);
             }
         }
         if (typeof callback === 'function') {
-            callback();
+            callback(null, json);
         } else {
-            console.log('No callback specified when setting the environment!');
+            util.error('No callback specified when setting the environment!');
         }
     }
 }
@@ -57,7 +63,7 @@ function register(options) {
             return res.json();
         })
         .then(function (json) {
-            console.log('REGISTER RESPONSE: %j', json);
+            debuglog('register response: %j', json);
         });
 }
 
@@ -78,7 +84,7 @@ function update(options) {
             return res.json();
         })
         .then(function (json) {
-            console.log('UPDATE RESPONSE: %j', json);
+            debuglog('update response: %j', json);
         });
 }
 
