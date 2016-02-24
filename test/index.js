@@ -8,15 +8,16 @@ const client = require('../index.js'),
     };
 
 config.data = {
-    timeout: 9  
+    timeout: 9
 };
 
 client.update(config);
 
-client.getConfig(config, function (error) {
+client.getConfig(config, function (error, data) {
     if (error) {
         console.log(error);
     } else {
-        console.log('Environment variables have been set');   
+        console.log(data);
+        console.log('Environment variables have been set');
     }
 });
