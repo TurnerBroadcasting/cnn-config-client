@@ -17,7 +17,7 @@ client.getConfig(config, function (error, data) {
     if (error) {
         console.log(error);
     } else {
-        console.log(data);
+        console.log('data: %j', data);
         console.log('Environment variables have been set');
     }
 });
