@@ -111,10 +111,11 @@ const client = require('../index.js'),
         token: '35e6c81b5a764404eac05f0c556d7cb3f4549c00'
     };
 
-client.getConfig(config, function (error) {
+client.getConfig(config, function (error, data) {
     if (error) {
         console.log(error);
     } else {
+        console.log('data: %j', data);
         console.log('Environment variables have been set');   
     }
 });
