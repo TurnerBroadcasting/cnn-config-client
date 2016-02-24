@@ -2,7 +2,8 @@
 
 const util = require('util'),
     fetch = require('node-fetch'),
-    host = process.env.CONFIG_HOST;
+    host = process.env.CONFIG_HOST,
+    log = console;
 
 function testOptions(options) {
     return typeof options === 'undefined' || typeof options !== 'object' ? {} : options;
@@ -18,24 +19,24 @@ function setEnv(json, callback) {
         name;
 
     if (!json || (json.STATUSCODE && json.STATUSCODE === '500')) {
-        console.log('ENV NOT SET ERROR: %j', json);
+        log.debug('ENV NOT SET ERROR: %j', json);
         if (typeof callback === 'function') {
             callback(json);
         } else {
-            console.log('No callback specified when setting the environment!');
+            log.debug('No callback specified when setting the environment!');
         }
     } else {
         for (prop in json) {
             if (json.hasOwnProperty(prop)) {
                 name = prop.toUpperCase();
                 process.env[name] = json[prop];
-                console.log('set process.env.%s = %s', name, json[prop]);
+                log.debug('set process.env.%s = %s', name, json[prop]);
             }
         }
         if (typeof callback === 'function') {
-            callback();
+            callback(json);
         } else {
-            console.log('No callback specified when setting the environment!');
+            log.debug('No callback specified when setting the environment!');
         }
     }
 }
@@ -57,7 +58,7 @@ function register(options) {
             return res.json();
         })
         .then(function (json) {
-            console.log('REGISTER RESPONSE: %j', json);
+            log.debug('REGISTER RESPONSE: %j', json);
         });
 }
 
@@ -78,7 +79,7 @@ function update(options) {
             return res.json();
         })
         .then(function (json) {
-            console.log('UPDATE RESPONSE: %j', json);
+            log.debug('UPDATE RESPONSE: %j', json);
         });
 }
 
