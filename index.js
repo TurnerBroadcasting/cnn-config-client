@@ -54,7 +54,8 @@ function setEnv(json, callback) {
 function register(options) {
     options = testOptions(options);
 
-    let url = util.format('%s/%s', host, 'register'),
+    let host = options.host || process.env.CONFIG_HOST,
+        url = util.format('%s/%s', host, 'register'),
         data = JSON.stringify(options);
 
     fetch(url, {method: 'POST', body: data})
@@ -75,7 +76,8 @@ function register(options) {
 function update(options) {
     options = testOptions(options);
 
-    let url = util.format('%s/%s', host, 'update'),
+    let host = options.host || process.env.CONFIG_HOST,
+        url = util.format('%s/%s', host, 'update'),
         data = JSON.stringify(options);
 
     fetch(url, {method: 'POST', body: data})
@@ -95,7 +97,8 @@ function update(options) {
  * @param {function} callback - The function to run after the environment has been set
  */
 function getConfig(options, callback) {
-    options = testOptions(options),
+    options = testOptions(options);
+    
     let host = options.host || process.env.CONFIG_HOST,
         url = util.format('%s/%s/%s/%s', host, options.product, options.environment, options.token);
 
