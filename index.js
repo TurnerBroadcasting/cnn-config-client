@@ -2,7 +2,6 @@
 
 const util = require('util'),
     fetch = require('node-fetch'),
-    host = process.env.CONFIG_HOST,
     pkg = require('./package.json'),
     debuglog = util.debuglog(pkg.name);
 
@@ -55,7 +54,8 @@ function setEnv(json, callback) {
 function register(options) {
     options = testOptions(options);
 
-    let url = util.format('%s/%s', host, 'register'),
+    let host = options.host || process.env.CONFIG_HOST,
+        url = util.format('%s/%s', host, 'register'),
         data = JSON.stringify(options);
 
     fetch(url, {method: 'POST', body: data})
@@ -76,7 +76,8 @@ function register(options) {
 function update(options) {
     options = testOptions(options);
 
-    let url = util.format('%s/%s', host, 'update'),
+    let host = options.host || process.env.CONFIG_HOST,
+        url = util.format('%s/%s', host, 'update'),
         data = JSON.stringify(options);
 
     fetch(url, {method: 'POST', body: data})
@@ -97,8 +98,9 @@ function update(options) {
  */
 function getConfig(options, callback) {
     options = testOptions(options);
-
-    let url = util.format('%s/%s/%s/%s', host, options.product, options.environment, options.token);
+    
+    let host = options.host || process.env.CONFIG_HOST,
+        url = util.format('%s/%s/%s/%s', host, options.product, options.environment, options.token);
 
     fetch(url)
         .then(function (res) {
