@@ -2,7 +2,6 @@
 
 const util = require('util'),
     fetch = require('node-fetch'),
-    host = process.env.CONFIG_HOST,
     pkg = require('./package.json'),
     debuglog = util.debuglog(pkg.name);
 
@@ -96,9 +95,9 @@ function update(options) {
  * @param {function} callback - The function to run after the environment has been set
  */
 function getConfig(options, callback) {
-    options = testOptions(options);
-
-    let url = util.format('%s/%s/%s/%s', host, options.product, options.environment, options.token);
+    options = testOptions(options),
+    let host = options.host || process.env.CONFIG_HOST,
+        url = util.format('%s/%s/%s/%s', host, options.product, options.environment, options.token);
 
     fetch(url)
         .then(function (res) {
