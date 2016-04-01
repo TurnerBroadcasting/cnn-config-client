@@ -1,6 +1,30 @@
 # CNN Environment Configuration Client Changelog
 
 
+## 2016-03-23, Version 0.5.0, @adslaton
+
+### Notable changes
+
+- added CHANGELOG.md
+- added AUTHORS.md
+
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-config-client/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`72487ee72b`](https://github.com/cnnlabs/cnn-config-client/commit/72487ee72b)] - Merge pull request #14 from cnnlabs/feature/changelog-maker (A.D. Slaton) 
+* [[`9a3e31ff4f`](https://github.com/cnnlabs/cnn-config-client/commit/9a3e31ff4f)] - updated readme description (A.D. Slaton) 
+* [[`e2cdc24229`](https://github.com/cnnlabs/cnn-config-client/commit/e2cdc24229)] - added build badges (A.D. Slaton) 
+* [[`c94ccdb325`](https://github.com/cnnlabs/cnn-config-client/commit/c94ccdb325)] - updated dependencies to latest versions (A.D. Slaton) 
+* [[`b390bad460`](https://github.com/cnnlabs/cnn-config-client/commit/b390bad460)] - updated the package.json description (A.D. Slaton) 
+* [[`2e73b8818d`](https://github.com/cnnlabs/cnn-config-client/commit/2e73b8818d)] - added CHANGELOG.md (A.D. Slaton) 
+* [[`86bf230d27`](https://github.com/cnnlabs/cnn-config-client/commit/86bf230d27)] - added AUTHORS.md (A.D. Slaton) 
+
+
 ## 0.0.x - 0.1.6 - Initial versions
 
 * [[`f17ab3be2c`](https://github.com/cnnlabs/cnn-config-client/commit/f17ab3be2c)] - 0.1.6 (A.D. Slaton) 
