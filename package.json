@@ -1,7 +1,7 @@
 {
   "name": "cnn-config-client",
   "version": "0.1.6",
-  "description": "A module that interfaces with a configuration host.",
+  "description": "A module that interfaces with a configuration host to environment variables.",
   "main": "index.js",
   "scripts": {
     "test": "node test/index.js",
@@ -30,7 +30,9 @@
     "cnnlabs",
     "configuration",
     "environment",
-    "process"
+    "env",
+    "process",
+    "variables"
   ],
   "license": "MIT"
 }
