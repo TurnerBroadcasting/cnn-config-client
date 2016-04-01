@@ -1,7 +1,7 @@
 # CNN Environment Configuration Client Changelog
 
 
-## 2016-03-23, Version 0.5.0, @adslaton
+## 2016-04-01, Version 0.1.7, @adslaton
 
 ### Notable changes
 
