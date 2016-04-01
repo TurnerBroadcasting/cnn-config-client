@@ -2,6 +2,12 @@
 
 A module that interfaces with a configuration host.
 
+[![build](https://img.shields.io/travis/cnnlabs/cnn-config-client/master.svg?style=flat-square)](https://travis-ci.org/cnnlabs/cnn-config-client)
+![node](https://img.shields.io/node/v/cnn-config-client.svg?style=flat-square)
+[![npm](https://img.shields.io/npm/v/cnn-config-client.svg?style=flat-square)](https://www.npmjs.com/package/cnn-config-client)
+[![npm-downloads](https://img.shields.io/npm/dm/cnn-config-client.svg?style=flat-square)](https://www.npmjs.com/package/cnn-config-client)
+[![dependency-status](https://gemnasium.com/cnnlabs/cnn-config-client.svg)](https://gemnasium.com/cnnlabs/cnn-config-client)
+
 **Contents**
 
 - [Documentation](#documentation)
