@@ -1,6 +1,6 @@
 # CNN Server Configuration Client
 
-A module that interfaces with a configuration host.
+A module that gets data from a config server and set environment variables.
 
 [![build](https://img.shields.io/travis/cnnlabs/cnn-config-client/master.svg?style=flat-square)](https://travis-ci.org/cnnlabs/cnn-config-client)
 ![node](https://img.shields.io/node/v/cnn-config-client.svg?style=flat-square)
