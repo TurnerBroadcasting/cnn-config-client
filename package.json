@@ -1,7 +1,7 @@
 {
   "name": "cnn-config-client",
   "version": "0.1.6",
-  "description": "A module that interfaces with a configuration host to environment variables.",
+  "description": "A module that gets data from a config server and set environment variables.",
   "main": "index.js",
   "scripts": {
     "test": "node test/index.js",
