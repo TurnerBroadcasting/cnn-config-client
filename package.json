@@ -16,7 +16,7 @@
     "url": "https://github.com/cnnlabs/cnn-config-client/issues"
   },
   "dependencies": {
-      "node-fetch": "1.4.1"
+      "node-fetch": "1.5.1"
   },
   "devDependencies": {
     "changelog-maker": "2.2.2"
