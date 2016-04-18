@@ -1,6 +1,27 @@
 # CNN Environment Configuration Client Changelog
 
 
+## 2016-04-18, Version 0.1.8, @adslaton
+
+### Notable changes
+
+- added CHANGELOG.md
+- added AUTHORS.md
+
+
+### Known issues
+
+See https://github.com/cnnlabs/cnn-config-client/labels/defect for complete and
+current list of known issues.
+
+### Commits
+
+* [[`a500ba2ef0`](https://github.com/cnnlabs/cnn-config-client/commit/a500ba2ef0)] - Merge pull request #15 from cnnlabs/feature/dependency-update (A.D. Slaton) 
+* [[`60eccf0701`](https://github.com/cnnlabs/cnn-config-client/commit/60eccf0701)] - Remove extra space in the pakage.json (A.D. Slaton) 
+* [[`ecbff29515`](https://github.com/cnnlabs/cnn-config-client/commit/ecbff29515)] - Update the latest version of node-fetch (A.D. Slaton) 
+* [[`0eae936062`](https://github.com/cnnlabs/cnn-config-client/commit/0eae936062)] - corrected changelog (A.D. Slaton) 
+
+
 ## 2016-04-01, Version 0.1.7, @adslaton
 
 ### Notable changes
