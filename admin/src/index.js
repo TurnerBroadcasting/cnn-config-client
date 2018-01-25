@@ -1,17 +1,18 @@
+/*eslint-disable import/default */
+import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+import routes from './routes';
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap-validator/dist/validator.min.js';
 import './styles/styles.css';
-import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
-import {Router, browserHistory} from 'react-router';
-import routes from './routes';
+//import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(
-        <Router history={browserHistory} routes={routes}>
-            <App />
-        </Router>
+render(
+    <Router history={browserHistory} routes={routes} />,
+     document.getElementById('root')
+);
         
-    , document.getElementById('root'));
-registerServiceWorker();
+//registerServiceWorker();

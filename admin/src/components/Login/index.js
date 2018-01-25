@@ -64,7 +64,7 @@ export default class Login extends Component {
   
 
   render() {
-    const { email, password } = this.state;
+    
     let SubmitButton=this.state.isProcessingRequest ? <LoadingButton className="btn btn-primary"/> : <button type="submit" onClick={(e)=>this.handleSubmit(e)} className="btn btn-primary">Sign in</button>;
     return (
       <div className="container" style={{paddingTop:"155px"}}>

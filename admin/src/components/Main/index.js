@@ -6,7 +6,7 @@ import toastr from 'toastr';
 import ReactJson from 'react-json-view';
 import Dialog from 'react-bootstrap-dialog';
 const $=window.$;
-const AUTH_TOKEN=config.authToken;
+
 class Main extends Component
 {
     
@@ -112,7 +112,7 @@ class Main extends Component
         {
             try {
                 let _route=id ? `${config.apiServerUrl}/update`:`${config.apiServerUrl}/register`;  
-                let token=await axios.post(_route,payload,{headers:{'Authorization':config.authToken}});
+                await axios.post(_route,payload,{headers:{'Authorization':config.authToken}});
                  toastr.success('Data saved!')
                  this.init();
             }
