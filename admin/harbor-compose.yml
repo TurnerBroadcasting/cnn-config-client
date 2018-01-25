@@ -1,0 +1,14 @@
+shipments:
+  cnn-config-admin:
+    env: dev
+    barge: ent-prod
+    containers:
+    - cnn-config-admin
+    replicas: 1
+    group: cnn
+    property: cnn
+    project: config
+    product: cnn-config-admin
+    enableMonitoring: true
+    healthcheckTimeoutSeconds: 1
+    healthcheckIntervalSeconds: 10
